@@ -16,6 +16,7 @@
 
 @implementation MyTableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -42,6 +43,8 @@
     
     dvc.detailText = cell.cellTextView.text;
     dvc.image = cell.cellImage.image;
+    dvc.mytableController = self;
+    
     
     return dvc;
 }

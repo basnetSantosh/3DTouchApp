@@ -9,12 +9,26 @@
 #import "DetailViewController.h"
 
 @interface DetailViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
 @implementation DetailViewController
+
+-(NSArray<id> *) previewActionItems {
+    
+    UIPreviewAction *shareAction = [UIPreviewAction actionWithTitle:@"Share" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        
+        UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[self.image] applicationActivities:nil];
+        [self.mytableController presentViewController:avc animated:YES completion:nil];
+    }];
+    
+    UIPreviewAction *likeAction = [UIPreviewAction actionWithTitle:@"Like" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"Liked");
+    }];
+    return @[shareAction, likeAction];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

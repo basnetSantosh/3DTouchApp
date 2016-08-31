@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyTableViewController.h"
 
 @interface DetailViewController : UIViewController
 
 @property (nonatomic, strong) NSString *detailText;
 @property (nonatomic, strong) UIImage *image;
+@property (weak, nonatomic) MyTableViewController *mytableController;
 
 @end

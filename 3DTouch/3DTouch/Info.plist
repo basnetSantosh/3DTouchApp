@@ -36,5 +36,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeFavorite</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Go To Article Table</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.santosh.3DTouch.new</string>
+		</dict>
+	</array>
 </dict>
 </plist>

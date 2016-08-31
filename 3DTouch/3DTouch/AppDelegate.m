@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MyTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -14,6 +15,23 @@
 
 @implementation AppDelegate
 
+-(void) application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler{
+    [self handleShortCutItem:shortcutItem];
+}
+
+-(void) handleShortCutItem:(UIApplicationShortcutItem *)shortcutItem {
+    if ([shortcutItem.type isEqualToString:@"com.santosh.3DTouch.new"]){
+        [self goToTable];
+    }
+}
+
+-(void)goToTable{
+    UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
+    
+    MyTableViewController *mtvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"table"];
+    [navController pushViewController:mtvc animated:NO];
+    
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
